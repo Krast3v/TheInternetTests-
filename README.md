@@ -18,11 +18,15 @@ TheInternetTests/
     CheckboxPage.cs          # Page Object for checkboxes
     AlertPage.cs             # Page Object for JS alerts
     DynamicLoadingPage.cs    # Page Object for dynamic content
+    IFramePage.cs            # Page Object for iFrame / TinyMCE editor
+    MultipleWindowsPage.cs   # Page Object for browser window handling
   LoginTests.cs              # Login success and failure scenarios
   DropdownTests.cs           # Dropdown selection tests
   CheckboxTests.cs           # Checkbox state and toggle tests
   AlertTests.cs              # JS alert, confirm and prompt tests
   DynamicLoadingTests.cs     # Explicit wait for delayed elements
+  IFrameTests.cs             # Switching into/out of iFrames
+  MultipleWindowsTests.cs    # Opening and switching between browser windows
 ```
 
 ## Tests
@@ -66,6 +70,20 @@ TheInternetTests/
 | `Example1ShowsHelloWorldAfterLoad` | Waits for hidden element to become visible |
 | `Example2ShowsHelloWorldAfterLoad` | Waits for element added to DOM after delay |
 
+### IFrameTests.cs
+| Test | Description |
+|---|---|
+| `IFrameContainsDefaultText` | Verifies TinyMCE editor loads with default text |
+| `CanSetTextInIFrame` | Sets text via JavaScript inside iFrame |
+| `CanSwitchBackToMainPage` | Switches back to main page from iFrame context |
+
+### MultipleWindowsTests.cs
+| Test | Description |
+|---|---|
+| `ClickingLinkOpensNewWindow` | Verifies a second window is opened |
+| `NewWindowHasCorrectTitle` | Switches to new window and checks its title |
+| `CanSwitchBackToMainWindow` | Switches back to main window and verifies title |
+
 ## How to Run
 
 ```bash
@@ -81,6 +99,9 @@ dotnet test
 - `Displayed` property for dynamic element visibility
 - `SendKeys()` for form input and prompt dialogs
 - XPath by text: `//button[text()='...']`
+- `driver.SwitchTo().Frame()` and `DefaultContent()` for iFrame navigation
+- `IJavaScriptExecutor` for DOM manipulation in rich text editors
+- `driver.WindowHandles` and `SwitchTo().Window()` for multi-window handling
 
 ## Author
 Venelin Krustev — Junior QA Automation Engineer, Sofia
