@@ -36,7 +36,7 @@ public class AlertPage
 
     public string GetAlertText()
     {
-        return wait.Until(d => d.SwitchTo().Alert()).Text;
+        return wait.Until(d => d.SwitchTo().Alert().Text);
     }
 
     public void AcceptAlert()
