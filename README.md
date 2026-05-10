@@ -1,5 +1,7 @@
 # TheInternetTests
 
+![Tests](https://github.com/Krast3v/TheInternetTests-/actions/workflows/tests.yml/badge.svg)
+
 Automated UI tests for [The Internet](https://the-internet.herokuapp.com) — a practice site for Selenium automation.
 
 ## Tech Stack

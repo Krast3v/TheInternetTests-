@@ -1,5 +1,4 @@
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using TheInternetTests.Pages;
 
 namespace TheInternetTests;
@@ -13,7 +12,7 @@ public class AlertTests
     [SetUp]
     public void Setup()
     {
-        driver = new ChromeDriver();
+        driver = DriverFactory.Create();
         alertPage = new AlertPage(driver);
     }
 
