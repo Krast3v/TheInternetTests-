@@ -24,6 +24,7 @@ public class LoginPage
         driver.FindElement(By.Id("username")).SendKeys(username);
         driver.FindElement(By.Id("password")).SendKeys(password);
         driver.FindElement(By.CssSelector("button[type='submit']")).Click();
+        wait.Until(d => d.FindElement(By.Id("flash")).Displayed);
     }
 
     public string GetFlashMessage()
