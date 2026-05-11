@@ -1,14 +1,17 @@
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace TheInternetTests.Pages;
 
 public class MultipleWindowsPage
 {
     private readonly IWebDriver driver;
+    private readonly WebDriverWait wait;
 
     public MultipleWindowsPage(IWebDriver driver)
     {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
     }
 
     public void Open()
@@ -23,8 +26,10 @@ public class MultipleWindowsPage
 
     public void SwitchToNewWindow()
     {
+        wait.Until(d => d.WindowHandles.Count >= 2);
         string newWindow = driver.WindowHandles.Last();
         driver.SwitchTo().Window(newWindow);
+        wait.Until(d => d.Title.Length > 0);
     }
 
     public void SwitchToMainWindow()
