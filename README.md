@@ -100,7 +100,6 @@ dotnet test
 - `driver.SwitchTo().Alert()` for JS alerts
 - `Displayed` property for dynamic element visibility
 - `SendKeys()` for form input and prompt dialogs
-- XPath by text: `//button[text()='...']`
 - `driver.SwitchTo().Frame()` and `DefaultContent()` for iFrame navigation
 - `IJavaScriptExecutor` for DOM manipulation in rich text editors
 - `driver.WindowHandles` and `SwitchTo().Window()` for multi-window handling
